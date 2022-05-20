@@ -25,11 +25,8 @@
 #Client Secret = 2jx_sniL_qH9AH4SS7bMXFiFC-DQq5nD1QcmIzxnC_fczZL4cj FOR OAuth 2.0
 import tweepy
 from time import sleep
-import glob
-from PIL import Image
-
-image_list = []
-folderpath = "Python Practice/wow_memory_bot/Screenshots"
+from pathlib import Path
+import os
 
 twitter_auth_keys = {
         "consumer_key" : "hy0BkQlIxWqyCtEPcAx4CfEMs",
@@ -54,22 +51,14 @@ try:
 except:
     print("Error during authentication")
 
-
-# def test_tweet(api):
-#     test = api.update_status("Test upload")
-#     print(test)
-
 def tweet_picture(api):
-    for picture in glob.glob(folderpath):
-        try:
-            image = Image.open(picture)
-            api.media_upload(picture)
-            print("Tweeted!")
-            image_list.append(image)
-            sleep(900)
-            print(image_list)
-        except Exception as e:
-            print("encountered error! error deets: %s"%str(e))
-            break
+    os.chdir('screenshots')
+    for screenshot in os.listdir('.'):
+        tweet = "✨🦉✨"
+        media = api.media_upload(screenshot)
+        api.update_status(status=tweet, media_ids=[media.media_id])
+        sleep(43200)
+        print("Image Tweet!")
+    tweet_picture(api)
 
 tweet_picture(api)
