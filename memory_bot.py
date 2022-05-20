@@ -14,25 +14,23 @@
 #         | |  |  ``/  /`  /
 #        /,_|  |   /,_/   /
 #           /,_/      '`-'
-
-#API KEY = hy0BkQlIxWqyCtEPcAx4CfEMs
-#SECRET API KEY = EwMeBsrgtLSvRBlGymDy2sei5Qn5g5qfA8c9aNGBZU3gxmJkTY
-#BEARER TOKEN = AAAAAAAAAAAAAAAAAAAAADuObAEAAAAA4Gfw%2FCZNaJK7Ym07Q9qAgAtMBck%3DDfteKBUK57mSphb4We4wZ5lBWn3OsikrhqIzqampbDKxfqWflu
-#ACCESS TOKEN = 1028632935946174465-BL7XHw9YdPVbx4M1RXUKMfRMfW7pOQ
-#ACCESS SECRET TOKEN = EQmDK4ZdYVkQn6CYgHUa1GnyrLDbQfdanJAYmdToKxNWM
-
-#Client ID = YVJMaG5xNzF4OFRVcmVOQU5FUko6MTpjaQ
-#Client Secret = 2jx_sniL_qH9AH4SS7bMXFiFC-DQq5nD1QcmIzxnC_fczZL4cj FOR OAuth 2.0
 import tweepy
 from time import sleep
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+consumer_key = os.getenv('consumer_key')
+consumer_secret = os.getenv('consumer_secret')
+access_token = os.getenv('access_token')
+access_token_secret = os.getenv('access_token_secret')
 
 twitter_auth_keys = {
-        "consumer_key" : "hy0BkQlIxWqyCtEPcAx4CfEMs",
-        "consumer_secret" : "EwMeBsrgtLSvRBlGymDy2sei5Qn5g5qfA8c9aNGBZU3gxmJkTY",
-        "access_token" : "1028632935946174465-BL7XHw9YdPVbx4M1RXUKMfRMfW7pOQ",
-        "access_token_secret" : "EQmDK4ZdYVkQn6CYgHUa1GnyrLDbQfdanJAYmdToKxNWM"
+        "consumer_key" : consumer_key,
+        "consumer_secret" : consumer_secret,
+        "access_token" : access_token,
+        "access_token_secret" : access_token_secret
 }
 
 auth = tweepy.OAuthHandler(
