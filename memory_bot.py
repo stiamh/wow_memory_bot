@@ -16,7 +16,6 @@
 #           /,_/      '`-'
 import tweepy
 from time import sleep
-from pathlib import Path
 import os
 from dotenv import load_dotenv
 
