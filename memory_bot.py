@@ -19,6 +19,7 @@ from time import sleep
 import os
 from dotenv import load_dotenv
 
+# Opens the .env file with keys 
 load_dotenv()
 consumer_key = os.getenv('consumer_key')
 consumer_secret = os.getenv('consumer_secret')
@@ -54,7 +55,7 @@ def tweet_picture(api):
         tweet = "✨🦉✨"
         media = api.media_upload(screenshot)
         api.update_status(status=tweet, media_ids=[media.media_id])
-        sleep(43200)
+        sleep(43200) # 43200 seconds = 1 day
         print("Image Tweet!")
     tweet_picture(api)
 
