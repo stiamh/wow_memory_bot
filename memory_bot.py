@@ -55,7 +55,7 @@ def tweet_picture(api):
         tweet = "✨🦉✨"
         media = api.media_upload(screenshot)
         api.update_status(status=tweet, media_ids=[media.media_id])
-        print("Image Tweet!")
+        print("Image Tweeted!")
         sleep(43200) # 43200 seconds = 1 day
     tweet_picture(api) # Loops back to the beginning when finished. 
 
